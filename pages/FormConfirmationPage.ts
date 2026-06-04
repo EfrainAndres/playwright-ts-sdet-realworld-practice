@@ -1,6 +1,6 @@
 import { Locator, Page, expect } from "@playwright/test";
 
-export class FormConfirmation {
+export class FormConfirmationPage {
     readonly page: Page;
     readonly confirmationMessage: Locator;
 

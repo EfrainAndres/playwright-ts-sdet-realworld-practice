@@ -2,13 +2,13 @@ import { test as base, expect } from '@playwright/test';
 import { LoginPage } from '../pages/LoginPage';
 import { SecurePage } from '../pages/SecurePage';
 import { FormValidationPage } from '../pages/FormValidationPage';
-import { FormConfirmation } from '../pages/FormConfirmationPage';
+import { FormConfirmationPage } from '../pages/FormConfirmationPage';
 
 type Fixtures = {
     loginPage: LoginPage;
     securePage: SecurePage;
     formValidationPage: FormValidationPage;
-    formConfirmation: FormConfirmation;
+    formConfirmation: FormConfirmationPage;
 };
 
 const blockedThirdPartyPattern = /.*(blossomup\.co|doubleclick\.net|googleadservices\.com|googlesyndication\.com|googletagmanager\.com).*/;
@@ -28,7 +28,7 @@ export const test = base.extend<Fixtures>({
         await use(new FormValidationPage(page));
     },
     formConfirmation: async ({ page }, use) => {
-        await use(new FormConfirmation(page));   
+        await use(new FormConfirmationPage(page));   
     }
 });
 
