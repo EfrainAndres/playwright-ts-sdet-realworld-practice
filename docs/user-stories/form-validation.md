@@ -33,37 +33,49 @@ Scenario: Missing contact name
 Given the user is on the form validation page
 When the user submits the form without Contact Name
 Then the message `Please enter your Contact name.` should be visible
+And the user should remain on `/form-validation`
 
 Scenario: Missing contact number
 
 Given the user is on the form validation page
 When the user submits the form without Contact number
 Then the message `Please provide your Contact number.` should be visible
+And the user should remain on `/form-validation`
+
+Scenario: Invalid contact number format
+
+Given the user is on the form validation page
+When the user submits a Contact number that does not match `NNN-NNNNNNN`
+Then the message `Please provide your Contact number.` should be visible
+And the user should remain on `/form-validation`
 
 Scenario: Invalid or missing pickup date
 
 Given the user is on the form validation page
 When the user submits the form without a valid PickUp Date
 Then the message `Please provide valid Date.` should be visible
+And the user should remain on `/form-validation`
 
 Scenario: Missing payment method
 
 Given the user is on the form validation page
 When the user submits the form without selecting a payment method
 Then the message `Please select the Paymeny Method.` should be visible
+And the user should remain on `/form-validation`
 
 Scenario: Valid submission
 
 Given the user completes all required fields with valid data
 When the user clicks Register
-Then the form should submit successfully
-And the exact expected success message should be confirmed during implementation
+Then the user should be redirected to `/form-confirmation`
+And the message `Thank you for validating your ticket` should be visible
 
 ## Manual Test Scenarios
 
 - Verify all fields and the Register button are visible.
 - Submit with all fields empty.
 - Submit with one missing field at a time.
+- Submit a contact number that does not match `NNN-NNNNNNN`.
 - Submit with valid values for every field.
 - Verify both payment options, cash on delivery and card, can be selected.
 
@@ -77,6 +89,7 @@ And the exact expected success message should be confirmed during implementation
 
 - Missing Contact Name.
 - Missing Contact number.
+- Contact number that does not match `NNN-NNNNNNN`.
 - Missing PickUp Date.
 - Missing Payment Method.
 - Invalid date value if the control allows typing.
@@ -93,12 +106,13 @@ And the exact expected success message should be confirmed during implementation
 - P0 validation test for empty required fields.
 - P0 valid form completion after confirming success behavior.
 - P1 one-field-at-a-time validation coverage.
+- P1 invalid contact number format coverage.
 - P1 payment method option selection.
 
 ## Suggested Test Data
 
 - Contact Name: `Alex Morgan`
-- Contact number: `5551234567`
+- Contact number: `555-1234567`
 - PickUp Date: a valid future date
 - Payment Method: `cash on delivery` and `card`
 
@@ -110,7 +124,7 @@ And the exact expected success message should be confirmed during implementation
 
 ## Notes For Playwright Implementation Later
 
-- Check whether the page uses native browser validation, Bootstrap validation, or visible DOM messages.
+- The page uses native constraint validation with Bootstrap feedback messages.
+- The Contact number requires the pattern `NNN-NNNNNNN`.
 - Use form labels and option text for selectors.
 - Keep valid form data in `test-data/` later.
-
