@@ -1,0 +1,14 @@
+{
+    "valid_user": {
+        "username": "practice",
+        "password": "SuperSecretPassword!"
+    },
+    "missing_username": {
+        "username": "",
+        "password": "SuperSecretPassword!"
+    },
+    "invalid_password": {
+        "username": "practice",
+        "password": "wrongPassword"
+    }
+}

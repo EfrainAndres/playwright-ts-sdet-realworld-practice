@@ -10,7 +10,7 @@ https://practice.expandtesting.com/login
 
 ## Feature Overview
 
-The login page allows a user to submit a username and password. Valid credentials redirect the user to `/secure`. Invalid credentials keep the user on the login page and display an error message.
+The login page allows a user to submit a username and password. Valid credentials redirect the user to `/secure`. Missing username and invalid password cases keep the user on the login page and display an error message.
 
 ## Business Value
 
@@ -32,13 +32,13 @@ Then the user should be redirected to `/secure`
 And the message `You logged into a secure area!` should be visible
 And a Logout button should be visible
 
-Scenario: Invalid username
+Scenario: Missing username validation
 
 Given the user is on the login page
-When the user enters an invalid username
+When the user leaves the username empty
 And the user enters password `SuperSecretPassword!`
 And the user clicks Login
-Then the message `Invalid username.` should be visible
+Then the message `Your username is invalid!` should be visible
 And the user should remain on the login page
 
 Scenario: Invalid password
@@ -47,14 +47,14 @@ Given the user is on the login page
 When the user enters username `practice`
 And the user enters an invalid password
 And the user clicks Login
-Then the message `Invalid password.` should be visible
+Then the message `Your password is invalid!` should be visible
 And the user should remain on the login page
 
 ## Manual Test Scenarios
 
 - Verify the login page loads and shows Username, Password, and Login.
 - Verify successful login with documented valid credentials.
-- Verify invalid username error handling.
+- Verify missing username validation.
 - Verify invalid password error handling.
 - Verify failed login does not redirect to `/secure`.
 
@@ -65,9 +65,9 @@ And the user should remain on the login page
 
 ## Negative Scenarios
 
-- Invalid username with valid password displays `Invalid username.`
-- Valid username with invalid password displays `Invalid password.`
-- Empty fields should be checked manually. Expected message should be confirmed during implementation.
+- Missing username with valid password displays `Your username is invalid!`
+- Valid username with invalid password displays `Your password is invalid!`
+- Entering `wrongUser` with the valid password triggers the password validation path in the actual application, so it is not used as the username validation scenario.
 
 ## Edge Cases
 
@@ -78,7 +78,7 @@ And the user should remain on the login page
 ## Suggested Automation Coverage
 
 - P0 smoke test for valid login.
-- P0 negative test for invalid username.
+- P0 negative test for missing username validation.
 - P0 negative test for invalid password.
 - Optional edge tests for blank fields and whitespace after manual confirmation.
 
@@ -86,7 +86,7 @@ And the user should remain on the login page
 
 - Valid username: `practice`
 - Valid password: `SuperSecretPassword!`
-- Invalid username: `wrongUser`
+- Missing username: empty string
 - Invalid password: `WrongPassword`
 
 ## Out Of Scope
@@ -103,3 +103,4 @@ And the user should remain on the login page
 - Assert visible flash messages for success and failures.
 - Store credentials in shared test data later.
 
+Note: The visible app behavior differs from the original page documentation. The automated tests follow the actual application messages returned by the UI: `Your username is invalid!` for an empty username and `Your password is invalid!` for an invalid password.

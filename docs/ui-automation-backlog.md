@@ -2,7 +2,7 @@
 
 | Ticket | Feature | URL | Priority | Tags | Status |
 | --- | --- | --- | --- | --- | --- |
-| UI-001 | Login | https://practice.expandtesting.com/login | P0 | @smoke, @regression, @negative, @auth | Ready for automation |
+| UI-001 | Login | https://practice.expandtesting.com/login | P0 | @smoke, @regression, @negative, @auth | Done |
 | UI-002 | Register | https://practice.expandtesting.com/register | P1 | @regression, @negative, @forms | Ready for automation |
 | UI-003 | Forgot Password | https://practice.expandtesting.com/forgot-password | P1 | @regression, @negative, @forms | Ready for automation |
 | UI-004 | Form Validation | https://practice.expandtesting.com/form-validation | P0 | @smoke, @regression, @negative, @forms | Ready for automation |
