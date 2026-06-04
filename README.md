@@ -30,8 +30,8 @@ This creates a clean foundation so the UI automation can be implemented later wi
 
 | Phase | Focus | Status |
 | --- | --- | --- |
-| Phase 1 | Folder structure, README, documentation, user stories, acceptance criteria, manual scenarios, automation backlog | Current |
-| Phase 2 | UI automation with Playwright TypeScript | Next |
+| Phase 1 | Folder structure, README, documentation, user stories, acceptance criteria, manual scenarios, automation backlog | Automated |
+| Phase 2 | UI automation with Playwright TypeScript | Current |
 | Phase 3 | Page Object Model and reusable fixtures | Later |
 | Phase 4 | API testing | Later |
 | Phase 5 | Axe accessibility checks | Later |
