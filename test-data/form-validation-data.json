@@ -1,0 +1,38 @@
+{
+    "validCardPayment": {
+        "contactName": "John",
+        "contactNumber": "123-4567890",
+        "pickupDate": "2026-12-31",
+        "paymentMethod": "card"
+    },
+    "missingContactName": {
+        "contactName": "",
+        "contactNumber": "123-4567890",
+        "pickupDate": "2026-12-31",
+        "paymentMethod": "card"
+    },
+    "missingContactNumber": {
+        "contactName": "John",
+        "contactNumber": "",
+        "pickupDate": "2026-12-31",
+        "paymentMethod": "card"
+    },
+    "invalidPhoneFormat": {
+        "contactName": "John",
+        "contactNumber": "1234567890",
+        "pickupDate": "2026-12-31",
+        "paymentMethod": "card"
+    },
+    "missingPickupDate": {
+        "contactName": "John",
+        "contactNumber": "123-4567890",
+        "pickupDate": "",
+        "paymentMethod": "card"
+    },
+    "missingPaymentMethod": {
+        "contactName": "John",
+        "contactNumber": "123-4567890",
+        "pickupDate": "2026-12-31",
+        "paymentMethod": ""
+    }
+}

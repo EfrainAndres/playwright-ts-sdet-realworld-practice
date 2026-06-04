@@ -26,15 +26,19 @@ Validate required-field messages and successful completion behavior on the form 
 
 - Missing Contact Name shows `Please enter your Contact name.`
 - Missing Contact number shows `Please provide your Contact number.`
+- Contact number values that do not match `NNN-NNNNNNN` show `Please provide your Contact number.`
 - Missing or invalid PickUp Date shows `Please provide valid Date.`
 - Missing Payment Method shows `Please select the Paymeny Method.`
-- Valid data can be submitted after success behavior is confirmed.
+- Failed validation keeps the user on `/form-validation`.
+- Valid data redirects the user to `/form-confirmation`.
+- Successful submission shows `Thank you for validating your ticket`.
 
 ## Test Scenarios
 
 - Submit empty form.
 - Submit with missing Contact Name.
 - Submit with missing Contact number.
+- Submit with invalid Contact number format.
 - Submit with missing PickUp Date.
 - Submit with missing Payment Method.
 - Submit valid form with cash on delivery.
@@ -60,4 +64,3 @@ P0
 - At least one valid submission path is automated after confirmation.
 - Tests use labels and option text.
 - Data is centralized in `test-data/`.
-
